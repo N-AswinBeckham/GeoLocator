@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My GeoLocator</title>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        input[type=text], select, textarea {
+          width: 100%;
+         padding: 12px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+        resize: vertical;
+        }
+
+        label {
+         padding: 12px 12px 12px 0;
+         display: inline-block;
+        }
+
+        input[type=submit] {
+         background-color: #04AA6D;
+         color: white;
+         padding: 12px 20px;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+         float: right;
+        }
+
+        input[type=submit]:hover {
+         background-color: #45a049;
+        }
+
+        .center {
+        height: 25%;
+        margin: 0;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        color: rgb(104, 49, 4);
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        text-align: center;
+        }
+
+        .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        }
+
+        .col-25 {
+         float: left;
+         width: 25%;
+         margin-top: 6px;
+        }
+
+        .col-75 {
+         float: left;
+         width: 75%;
+         margin-top: 6px;
+        }
+
+    /* Clear floats after the columns */
+        .row:after {
+         content: "";
+         display: table;
+         clear: both;
+        }
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+         .col-25, .col-75, input[type=submit] {
+          width: 100%;
+          margin-top: 0;
+        }
+    }
+    </style>
+    <title> My Geolocator </title>
+</head>
+
+<body>
+    <div class="center">
+        <h1>My GeoLocator</h1>
+        <h2>Fill this form to know your geocode!</h2>      
+    </div>
+    <div class="container">
+        <form action="/result" method="POST">
+        <div class="row">
+          <div class="col-25">
+              <label for="name1">Name</label>
+          </div>
+          <div class="col-75">
+             <input type="text" id="name1" name="name1" placeholder="Your name..">
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="contact">Contact Number</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="contact" name="contact" placeholder="Your contact number..">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="location">Location</label>
+            </div>
+            <div class="col-75">
+                <textarea id="location" name="location" placeholder="Your location.." style="height:200px"></textarea>
+            </div>           
+        </div>
+        <br>
+        <div class="row">
+            <input type="submit" value="Submit" >
+           
+        </div>
+        </form>
+    </div>  
+     <script>  
+      /*  document.querySelector('Submit')
+            .addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const location = document
+                    .querySelector('#location').value;
+                     
+                fetch('/result', {
+                    method: 'POST',
+       
+                    body: JSON.stringify({
+                        
+                        location,
+                    }),
+                })
+                    .then((res) => {
+                        return res.json();
+                    })
+                    .then((data) => console.log(data));
+            });                 
+*/
+            fetch('/result', {
+                method: 'POST',
+                    body: JSON.stringify({
+                    name1 : "name1",
+                    contact : "contact",
+                    location : "location"
+                })
+            });
+    </script> 
+</body>
+
+</html>
+
