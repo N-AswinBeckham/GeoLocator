@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-//const fetch = require('node-fetch');
 
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: true }));
@@ -12,7 +11,6 @@ app.listen(3000, () =>  console.log('starting server: http://localhost:3000'));
 const geocode = '123 455 667';
 
 app.get('/', (req, res) => {
-
   res.render('Form');
 });
 
@@ -23,7 +21,6 @@ app.post('/result', async function(req, res)  {
   const fetch_res =  await fetch(api_url);
   const json = await fetch_res.json();
   const lat = json.features[0].geometry.coordinates[0];
-  console.log(`aswin is at ${location}`);
   const long = json.features[0].geometry.coordinates[1];
 
   res.render('geocode', { lat: lat, long: long});
