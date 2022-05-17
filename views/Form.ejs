@@ -121,27 +121,6 @@
         </form>
     </div>  
      <script>  
-      /*  document.querySelector('Submit')
-            .addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                const location = document
-                    .querySelector('#location').value;
-                     
-                fetch('/result', {
-                    method: 'POST',
-       
-                    body: JSON.stringify({
-                        
-                        location,
-                    }),
-                })
-                    .then((res) => {
-                        return res.json();
-                    })
-                    .then((data) => console.log(data));
-            });                 
-*/
             fetch('/result', {
                 method: 'POST',
                     body: JSON.stringify({
