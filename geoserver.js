@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/result', async function(req, res)  {
-  console.log(req.body)
+
   const location = req.body.location;
   const api_url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=pk.eyJ1IjoidnRoYXJ1bjAwMSIsImEiOiJjbDJnNWtqejcwMG91M2tzYm5xdjNvcmN1In0.fYPiaIq6efAQSH24eeUH1Q`;
   const fetch_res =  await fetch(api_url);
