@@ -8,8 +8,6 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.listen(3000, () =>  console.log('starting server: http://localhost:3000'));
 
-const geocode = '123 455 667';
-
 app.get('/', (req, res) => {
   res.render('Form');
 });
